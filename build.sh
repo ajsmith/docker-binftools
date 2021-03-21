@@ -12,8 +12,8 @@ then
 fi
 
 build_opts="\
---force-rm -f docker/Dockerfile -t ${image_repo}/binftools${image_tag}
+--force-rm -f Dockerfile -t ${image_repo}/binftools${image_tag}
 "
 
-cd $(dirname $0)/..
+cd $(dirname $0)
 docker build ${build_opts} .
