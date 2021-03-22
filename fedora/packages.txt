@@ -1,6 +1,5 @@
 clustal-omega
 conda
-doxygen
 emacs-nox
 findutils
 gcc
