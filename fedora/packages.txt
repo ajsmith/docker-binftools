@@ -1,3 +1,4 @@
+EMBOSS
 clustal-omega
 conda
 emacs-nox
@@ -24,6 +25,8 @@ texlive-collection-latexrecommended
 texlive-collection-mathscience
 texlive-dvipng
 texlive-fncychap
+texlive-gnu-freefont
+texlive-gnuplottex
 texlive-latex
 unzip
 which
