@@ -1,9 +1,13 @@
 EMBOSS
+bzip2
 clustal-omega
 conda
+diffutils
 emacs-nox
 findutils
 gcc
+gcc-c++
+git
 gnuplot
 gnuplot-doc
 graphviz
@@ -28,5 +32,6 @@ texlive-fncychap
 texlive-gnu-freefont
 texlive-gnuplottex
 texlive-latex
+tox
 unzip
 which
