@@ -9,3 +9,4 @@ RUN useradd -u 1001 -m me
 
 USER me
 WORKDIR /home/me
+COPY --chown=me:me fedora/user-files/.emacs .
