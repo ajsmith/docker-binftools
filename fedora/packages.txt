@@ -1,8 +1,8 @@
 EMBOSS
 bzip2
 clustal-omega
-conda
 diffutils
+emacs-color-theme-el
 emacs-nox
 findutils
 gcc
