@@ -1,4 +1,4 @@
-FROM fedora:36
+FROM fedora:38
 MAINTAINER Alexander Smith <asmitl@gmu.edu>
 
 WORKDIR /root
