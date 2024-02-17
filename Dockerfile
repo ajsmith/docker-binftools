@@ -1,5 +1,5 @@
-FROM fedora:38
-MAINTAINER Alexander Smith <asmitl@gmu.edu>
+FROM fedora:latest
+LABEL org.opencontainers.image.authors="Alexander Smith <asmitl@gmu.edu>"
 
 WORKDIR /root
 COPY fedora/setup.sh .
