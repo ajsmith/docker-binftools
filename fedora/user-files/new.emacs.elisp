@@ -1,0 +1,37 @@
+;; .emacs
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(desktop-save-mode t)
+ '(diff-switches "-u")
+ '(electric-pair-mode t)
+ '(global-whitespace-mode t)
+ '(icomplete-mode t)
+ '(indent-tabs-mode nil)
+ '(package-archives
+   '(("gnu" . "https://elpa.gnu.org/packages/")
+     ("melpa-stable" . "https://stable.melpa.org/packages/")))
+ '(package-selected-packages '(markdown-mode company pyvenv eglot))
+ '(whitespace-style
+   '(face trailing tabs lines-tail empty space-after-tab space-before-tab tab-mark)))
+
+;;; uncomment for CJK utf-8 support for non-Asian users
+;; (require 'un-define)
+
+;; Install some useful plugins for Python development
+(mapc
+ 'package-install
+ '(eglot pyvenv company markdown-mode)
+ )
+
+;; Use Eglot for Python LSP
+(add-hook 'python-mode-hook 'eglot-ensure)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
