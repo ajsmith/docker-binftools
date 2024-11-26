@@ -1,4 +1,4 @@
-FROM fedora:latest
+FROM --platform=$BUILDPLATFORM fedora:38
 LABEL org.opencontainers.image.authors="Alexander Smith <asmitl@gmu.edu>"
 
 WORKDIR /root
