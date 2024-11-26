@@ -32,6 +32,5 @@ texlive-fncychap
 texlive-gnu-freefont
 texlive-gnuplottex
 texlive-latex
-tox
 unzip
 which

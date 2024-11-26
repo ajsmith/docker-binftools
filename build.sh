@@ -12,7 +12,7 @@ then
 fi
 
 build_opts="\
---force-rm -f Dockerfile -t ${image_repo}/binftools${image_tag}
+--force-rm -f Dockerfile --platform=linux/arm64/v8 -t ${image_repo}/binftools${image_tag}
 "
 
 cd $(dirname $0)
