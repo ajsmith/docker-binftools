@@ -20,9 +20,7 @@ jobs:
       with:
         push: false
         tags: ajsmith/binftools:ci-build
-        platforms:
-          - linux/amd64
-          - linux/arm64
+        platforms: linux/amd64,linux/arm64
 
       #   - name: Build the Docker image
       # run: docker buildx . --file Dockerfile --tag ajsmith/binftools:$(date +%s) --platform=linux/amd64,linux/arm64
