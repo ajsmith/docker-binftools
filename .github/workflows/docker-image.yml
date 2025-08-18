@@ -1,8 +1,8 @@
 name: Docker Image CI
 
 on:
-  # push:
-  #   branches: [ "main" ]
+  push:
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
@@ -20,7 +20,16 @@ jobs:
       with:
         username: ${{ vars.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
     - uses: docker/build-push-action@v6
+      if: ${{ github.ref == 'refs/heads/main' }}
+      with:
+        push: true
+        tags: ajsmith/binftools:test
+        platforms: linux/amd64,linux/arm64
+
+    - uses: docker/build-push-action@v6
+      if: ${{ github.ref != 'refs/heads/main' }}
       with:
         push: true
         tags: ajsmith/binftools:ci-${{ github.head_ref }}
