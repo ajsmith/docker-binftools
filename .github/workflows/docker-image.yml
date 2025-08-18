@@ -1,8 +1,8 @@
 name: Docker Image CI
 
 on:
-  push:
-    branches: [ "main" ]
+  # push:
+  #   branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
@@ -23,5 +23,5 @@ jobs:
     - uses: docker/build-push-action@v6
       with:
         push: true
-        tags: ajsmith/binftools:ci-${{ github.ref_name }}
+        tags: ajsmith/binftools:ci-${{ github.head_ref }}
         platforms: linux/amd64,linux/arm64
