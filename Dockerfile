@@ -4,6 +4,7 @@ LABEL org.opencontainers.image.authors="Alexander Smith <asmitl@gmu.edu>"
 WORKDIR /root
 COPY fedora/setup.sh .
 COPY fedora/*packages.txt .
+COPY fedora/yum.repos.d/*.repo /etc/yum.repos.d/
 RUN /bin/bash setup.sh
 RUN useradd -u 1001 -m me
 
