@@ -25,12 +25,12 @@ jobs:
       if: ${{ github.ref == 'refs/heads/main' }}
       with:
         push: true
-        tags: ajsmith/binftools:latest
-        platforms: linux/amd64,linux/arm64
+        tags: ajsmith/binftools:cuda
+        platforms: linux/amd64
 
     - uses: docker/build-push-action@v6
       if: ${{ github.ref != 'refs/heads/main' }}
       with:
         push: true
         tags: ajsmith/binftools:ci-${{ github.head_ref }}
-        platforms: linux/amd64,linux/arm64
+        platforms: linux/amd64
