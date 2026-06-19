@@ -3,6 +3,10 @@
 A Docker image bundling bioinformatics and general dev tools, built on Fedora. Used as a
 personal/general-purpose toolbox (not tied to a specific course or research pipeline).
 
+**Single user, single arch.** This image only ever runs on the owner's Apple Silicon Mac
+(M4 Pro, `arm64`), so everything targets `linux/arm64` only. No amd64/multi-arch builds.
+Revisit if it ever needs to run on Intel/amd64 hardware.
+
 ## Layout
 
 - `Dockerfile` — image definition. Pins the Fedora base, runs `fedora/setup.sh`, creates user
@@ -38,18 +42,18 @@ personal/general-purpose toolbox (not tied to a specific course or research pipe
 ## CI / publishing
 
 `.github/workflows/docker-image.yml` runs on push/PR to `main`:
-- Multi-arch (`linux/amd64,linux/arm64`) via QEMU + buildx.
+- Builds `linux/arm64` only, on a standard `ubuntu-latest` runner via QEMU emulation. This is
+  slower than a native arm64 runner but works on any plan / public or private repo, which was
+  the explicit preference (robustness over speed).
 - Pushes to Docker Hub: `ajsmith/binftools:latest` on `main`, `ajsmith/binftools:ci-<branch>`
   on PRs.
 - Needs repo secrets `DOCKER_HUB_USERNAME` / `DOCKER_HUB_TOKEN`.
 
 CI and `build.sh` are both considered relevant: CI owns publishing, `build.sh` is the local
-build path.
+build path. `build.sh` reads `build.conf` (`platform=linux/arm64`) and runs a plain
+`docker build`, which works because arm64 is native on the owner's Mac (single-arch builds
+load straight into the local image store).
 
 ## Known issues
 
-- **`build.sh` is broken for multi-arch.** It calls plain `docker build` with two `--platform`
-  values, which requires buildx; it also has no `--push`/`--load`, so a multi-arch result can't
-  land locally. Fix (deferred): convert to `docker buildx build` with `--load` (single-arch
-  local test) or `--push` (multi-arch). Not yet done — flagged here so it isn't forgotten.
 - Stray editor backup files exist in the repo root (`Dockerfile~`, `build.sh~`, `build.conf~`).
