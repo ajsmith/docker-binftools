@@ -1,4 +1,4 @@
-FROM fedora:42
+FROM fedora:44
 LABEL org.opencontainers.image.authors="Alexander Smith <asmitl@gmu.edu>"
 
 WORKDIR /root

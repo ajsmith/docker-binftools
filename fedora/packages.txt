@@ -7,6 +7,7 @@ emacs-nox
 findutils
 gcc
 gcc-c++
+gh
 git
 graphviz
 make
